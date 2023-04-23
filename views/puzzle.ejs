@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Puzzle Game</title>
+  
+  <style>
+    .puzzle {
+      display: flex;
+      flex-wrap: wrap;
+      width: 300px;
+      height: 300px;
+      margin: 0 auto;
+      margin-top: 20px;
+      border: 2px solid black;
+    }
+    .puzzle-piece {
+      width: 96px;
+      height: 96px;
+      margin: 2px;
+      background-color: #ccc;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .puzzle-piece:hover {
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <h1>Puzzle Game</h1>
+  <div id="puzzle-container">
+    <div class="puzzle">
+      <% for (var i = 0; i < 9; i++) { %>
+        <% if (gameState.tiles[i].value === '') { %>
+          <div class="puzzle-piece" data-index="<%= i %>"></div>
+        <% } else { %>
+          <div class="puzzle-piece" data-index="<%= i %>"><%= gameState.tiles[i].value %></div>
+        <% } %>
+      <% } %>
+    </div>
+    <button id="shuffle-button">Shuffle</button>
+  </div>
+  <script>
+    var gameState = {};
+  </script>
+  <script src="puzzle.js"></script>
+  <script>
+    init(gameState);
+    
+
+  </script>
+</body>
+</html>
